@@ -46,4 +46,14 @@
             // Check row
             return $this->db->rowCount() > 0;
         }
+
+         // Find user by id
+         public function getUserById($id){
+            $this->db->query('SELECT * FROM users WHERE id = :id');
+
+            // Bind value
+            $this->db->bind(':id', $id);
+
+            return $this->db->single();
+        }
     }
